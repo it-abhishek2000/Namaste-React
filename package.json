@@ -1,0 +1,29 @@
+{
+  "name": "namaste-react-bootcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/it-abhishek2000/New-folder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/it-abhishek2000/New-folder/issues"
+  },
+  "homepage": "https://github.com/it-abhishek2000/New-folder#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.0",
+    "process": "^0.11.10"
+  }
+}
