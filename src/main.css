@@ -1,0 +1,8 @@
+.header, .brand-name {
+    display: flex;
+    align-items: center;
+    flex: auto;
+}
+.header{
+    background-color: aqua;
+}
