@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 const heading = React.createElement("h1", {}, "Hello Abhisheeek");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //root.render(heading);
-const divWithChild = React.createElement("div",{id:"title"}, [
-  React.createElement("h1", {id:"heading1"}, "Hello Abhisheeek"),
-  React.createElement("h1", {id:"heading2"}, "Hello Abhisheeek"),
-  React.createElement("h1", {id:"heading3"}, "Hello Abhisheeek")
+const divWithChild = React.createElement("div", { id: "title" }, [
+  React.createElement("h1", { id: "heading1" }, "Hello Abhisheeek"),
+  React.createElement("h1", { id: "heading2" }, "Hello Abhisheeek"),
+  React.createElement("h1", { id: "heading3" }, "Hello Abhisheeek"),
 ]);
 
 const FirstComponent = () => {
@@ -18,7 +19,7 @@ const FirstComponent = () => {
       <SecondComponent />
       <SecondComponent />
       <SecondComponent />
-       {divWithChild}
+      {divWithChild}
     </div>
   );
 };
@@ -29,5 +30,7 @@ const SecondComponent = () => {
     </div>
   );
 };
+/* rendered react element */
 //root.render(divWithChild)
+// rendered funtional component
 root.render(<FirstComponent />);
