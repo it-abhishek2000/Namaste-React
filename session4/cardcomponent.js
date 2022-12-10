@@ -1,5 +1,6 @@
 import React from "react";
-const Card = ({ member }) => {
+const Card = ( props ) => {
+  const member = props.member;
   return (
     <div className="memberCard">
       <img src={member.profilePic} className="profilepic"></img>
