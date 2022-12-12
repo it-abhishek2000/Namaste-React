@@ -1,0 +1,27 @@
+.AllCard {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.singleCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardProfilepic{
+   height: 300px;
+   width: 300px;
+}
+
+.title{
+    text-align: center;
+}
+.searchBar{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
