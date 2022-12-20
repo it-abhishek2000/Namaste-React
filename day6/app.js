@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import example from "./example.json";
 import fetchUser from "./fetchUsers";
 import Card from "./card";
 import SearchBar from "./searchBar";
+import { createBrowserRouter,RouterProvider ,Outlet} from "react-router-dom";
+import AboutUs from "./About";
+import ErrorComponent from "./ErrorComponent";
+import TeamInfo from "./TeamInfo";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 const githubUserNames = [
   "gavandivya",
   "akshaymarch7",
@@ -47,13 +52,43 @@ const MainApp = () => {
         <Header />
       </div>
       <div className="searchBar">
-        <SearchBar />
+          <SearchBar/>
       </div>
       <div className="AllCard">
-        <AllCard Data={Data} />
+        <AllCard Data={Data}/>
       </div>
+      
+      
     </>
   );
 };
 
-root.render(<MainApp />);
+const appProvider = createBrowserRouter([
+  {
+    path:"/",
+    element:<MainApp />,
+    errorElement:<ErrorComponent/>,
+    children:[
+      
+      {
+        path:"search",
+        element:<SearchBar/>
+      },
+      {
+        path:"info",
+        element:<AllCard Data={example}/>
+      }
+    ]
+  },
+  {
+    path:"/teaminfo/:id",
+    element:<TeamInfo/>
+  },
+  {
+    path:"/about",
+    element:<AboutUs/>
+  },
+ 
+]);
+
+root.render(<RouterProvider router={appProvider}/>);
