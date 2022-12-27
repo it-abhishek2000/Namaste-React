@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel session4/index.html",
+    "start": "parcel day6/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +20,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.5"
   },
   "devDependencies": {
     "parcel": "^2.8.0",

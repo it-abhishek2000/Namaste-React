@@ -2,7 +2,8 @@ node_modules
 dist
 .parcel-cache
 .env
-newreactapp\myapp
+newreactapp
+myapp
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -26,4 +27,6 @@ newreactapp\myapp
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src
+newreactapp
 
