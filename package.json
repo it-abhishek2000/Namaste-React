@@ -18,13 +18,25 @@
   },
   "homepage": "https://github.com/it-abhishek2000/New-folder#readme",
   "dependencies": {
+    "-": "^0.0.1",
+    "@fortawesome/fontawesome-free": "^6.3.0",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "babel-plugin-macros": "^3.1.0",
     "cors": "^2.8.5",
+    "D": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "autoprefixer": "^10.4.13",
     "parcel": "^2.8.0",
-    "process": "^0.11.10"
+    "postcss": "^8.4.20",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.2.4"
   }
 }
