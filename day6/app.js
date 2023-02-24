@@ -1,36 +1,30 @@
-import React, { Children, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import example from "./example.json";
-import fetchUser from "./fetchUsers";
-import Card from "./card";
-import SearchBar from "./searchBar";
-import { createBrowserRouter,RouterProvider ,Outlet} from "react-router-dom";
-import AboutUs from "./About";
-import ErrorComponent from "./ErrorComponent";
-import TeamInfo from "./TeamInfo";
+import example from "./utils/example.json";
+import fetchUser from "./components/fetchUsers";
+import Card from "./components/card";
+import SearchBar from "./components/searchBar";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Link,
+} from "react-router-dom";
+import AboutUs from "./components/About";
+import ErrorComponent from "./components/ErrorComponent";
+import TeamInfo from "./components/TeamInfo";
+import githubUserNames from "./utils/githubusername.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+import Header from "./components/header";
+import ThemeContext from "./themeContext";
 
-const githubUserNames = [
-  "gavandivya",
-  "akshaymarch7",
-  "ap221882",
-  "Bhallora",
-  "aditifarkya",
-  "it-abhishek2000",
-  "deepak-kumar-dev",
-  "soumyagangamwar",
-  "shreerajjadeja",
-  "nikitaj-57",
-];
+console.log(githubUserNames);
 
-const Header = () => <h1>Hii we are Brainy Fools</h1>;
 const AllCard = ({ Data }) => {
   return Data.map((res, index) => <Card res={res} key={index} />);
 };
-
-const MainApp = () => {
+const SecondMain = ()=>{
   const [Data, setData] = useState(example);
-  const [searchText,setSearchText] = useState("");
 
   useEffect(() => {
     fetchAll();
@@ -45,50 +39,59 @@ const MainApp = () => {
     );
     setData(res);
   }
+  return (<>
+  <div className="font-bold text-center text-xl border-gray-900">
+        <SearchBar />
+      </div>
+      <div className=" flex flex-wrap justify-evenly mx-4 my-4">
+        <AllCard Data={Data} />
+      </div>
+  </>);
+}
+const MainApp = () => {
+ 
+  const [searchText, setSearchText] = useState("");
+  const [ theme, setTheme ] = useState("light");
+ 
+
+  
 
   return (
-    <>
-      <div className="title">
+    <ThemeContext.Provider value={{theme:theme,setTheme:setTheme}}>
+      <div className={"header font-bold text-center text-4xl p-1 h-12"+`${theme === "light"?"bg-white":"bg-slate-800"}`}>
         <Header />
-      </div>
-      <div className="searchBar">
-          <SearchBar/>
-      </div>
-      <div className="AllCard">
-        <AllCard Data={Data}/>
-      </div>
-      
-      
-    </>
+      </div>  
+      <Outlet />
+    </ThemeContext.Provider>
   );
 };
 
 const appProvider = createBrowserRouter([
   {
-    path:"/",
-    element:<MainApp />,
-    errorElement:<ErrorComponent/>,
-    children:[
-      
+    path: "/",
+    element: <MainApp />,
+    errorElement: <ErrorComponent />,
+    children: [
       {
-        path:"search",
-        element:<SearchBar/>
+        path: "/",
+        element: <SecondMain />,
       },
       {
-        path:"info",
-        element:<AllCard Data={example}/>
+        path: "/teaminfo/:id",
+        element: <TeamInfo />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+      {
+        path:"/search",
+        element:<SearchBar/>
       }
-    ]
-  },
-  {
-    path:"/teaminfo/:id",
-    element:<TeamInfo/>
-  },
-  {
-    path:"/about",
-    element:<AboutUs/>
+    ],
   },
  
+  
 ]);
 
-root.render(<RouterProvider router={appProvider}/>);
+root.render(<RouterProvider router={appProvider} />);
